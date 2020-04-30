@@ -5,7 +5,7 @@ const path = require("path");
 
 const PORT = process.env.PORT || 8080;
 
-// const User = require("./userModel.js");
+const Resistance = require("./models/resistanceModel.js");
 const app = express();
 
 app.use(logger("dev"));
@@ -23,6 +23,7 @@ mongoose
   .catch((err) => console.log(err));
 
 require("./routes/html-routes.js")(app);
+require("./routes/api-routes.js")(app);
 
 app.listen(PORT, () => {
   console.log(
