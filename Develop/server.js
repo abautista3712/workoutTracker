@@ -5,7 +5,6 @@ const path = require("path");
 
 const PORT = process.env.PORT || 8080;
 
-const Resistance = require("./models/resistanceModel.js");
 const app = express();
 
 app.use(logger("dev"));
@@ -16,7 +15,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://localhost/userdb", {
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
     useNewUrlParser: true,
   })
   .then(() => console.log("MongoDB Connected"))
