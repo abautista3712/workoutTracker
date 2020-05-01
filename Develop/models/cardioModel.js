@@ -7,18 +7,18 @@ const CardioSchema = new Schema({
     type: String,
     trim: true,
   },
-  cardio-name: {
+  name: {
     type: String,
     trim: true,
     required: "Exercise name is Required",
   },
-  distance: {
-    type: Number,
-    required: "Distance is Required",
-  },
   duration: {
     type: Number,
     required: "Duration in minutes is Required",
+  },
+  distance: {
+    type: Number,
+    required: "Distance is Required",
   },
 });
 
