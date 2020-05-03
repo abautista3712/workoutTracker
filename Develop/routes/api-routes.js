@@ -4,25 +4,27 @@ const Workout = require("../models/workoutModel.js");
 
 module.exports = function (app) {
   app.get("/api/workouts", (req, res) => {
-    Workout.find()
-      .sort({ _id: -1 })
-      .limit(1)
-      .then((result) => {
-        res.json(result);
+    Workout.find({})
+      // .sort({ _id: -1 })
+      .limit(7)
+      .then((dbWorkout) => {
+        res.json(dbWorkout);
       })
       .catch((err) => {
+        res.json(err);
         console.log(err);
       });
   });
 
   app.get("/api/workouts/range", (req, res) => {
     Workout.find()
-      .sort({ _id: -1 })
-      .limit(1)
-      .then((result) => {
-        res.json(result);
+      // .sort({ _id: -1 })
+      .limit(7)
+      .then((dbWorkout) => {
+        res.json(dbWorkout);
       })
       .catch((err) => {
+        res.json(err);
         console.log(err);
       });
   });
