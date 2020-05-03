@@ -5,7 +5,6 @@ const Workout = require("../models/workoutModel.js");
 
 router.get("/api/workouts", (req, res) => {
   Workout.find({})
-    // .sort({ _id: -1 })
     .limit(7)
     .then((dbWorkout) => {
       res.json(dbWorkout);
@@ -17,7 +16,6 @@ router.get("/api/workouts", (req, res) => {
 
 router.get("/api/workouts/range", (req, res) => {
   Workout.find()
-    // .sort({ _id: -1 })
     .limit(7)
     .then((dbWorkout) => {
       res.json(dbWorkout);
@@ -28,10 +26,8 @@ router.get("/api/workouts/range", (req, res) => {
 });
 
 router.post("/api/workouts", (req, res) => {
-  // console.log(res)
   Workout.create({})
     .then((dbWorkout) => {
-      // console.log(response);
       res.json(dbWorkout);
     })
     .catch((err) => {
