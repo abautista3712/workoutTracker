@@ -22,7 +22,7 @@ mongoose
   .catch((err) => console.log(err));
 
 require("./routes/html-routes.js")(app);
-app.use(require("./routes/api-routes.js"));
+require("./routes/api-routes.js")(app);
 
 app.listen(PORT, () => {
   console.log(
