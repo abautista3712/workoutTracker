@@ -11,8 +11,7 @@ router.get("/api/workouts", (req, res) => {
       res.json(dbWorkout);
     })
     .catch((err) => {
-      res.json(err);
-      console.log(err);
+      res.status(400).json(err);
     });
 });
 
@@ -24,20 +23,19 @@ router.get("/api/workouts/range", (req, res) => {
       res.json(dbWorkout);
     })
     .catch((err) => {
-      res.json(err);
-      console.log(err);
+      res.status(400).json(err);
     });
 });
 
 router.post("/api/workouts", (req, res) => {
   // console.log(res)
   Workout.create({})
-    .then((response) => {
+    .then((dbWorkout) => {
       // console.log(response);
-      res.json(response);
+      res.json(dbWorkout);
     })
     .catch((err) => {
-      console.log(err);
+      res.status(400).json(err);
     });
 });
 
