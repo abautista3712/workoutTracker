@@ -39,8 +39,8 @@ module.exports = function (app) {
   app.put("/api/workouts/:id", ({ body, params }, res) => {
     db.Workout.findByIdAndUpdate(
       params.id,
-      { $push: { exercises: body } }
-      // { new: true, runValidators: true }
+      { $push: { exercises: body } },
+      { new: true, runValidators: true }
     )
       .then((dbWorkout) => res.json(dbWorkout))
       .catch((err) => res.status(400).json(err));
