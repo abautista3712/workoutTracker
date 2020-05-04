@@ -16,7 +16,7 @@ module.exports = function (app) {
   });
 
   app.get("/api/workouts/range", (req, res) => {
-    db.Workout.find()
+    db.Workout.find({})
       .limit(7)
       .then((dbWorkout) => {
         res.json(dbWorkout);
@@ -36,5 +36,13 @@ module.exports = function (app) {
       });
   });
 
-  app.put("/api/workouts/:id", (req, res) => {});
+  app.put("/api/workouts/:id", ({ body, params }, res) => {
+    db.Workout.findByIdAndUpdate(
+      params.id,
+      { $push: { exercises: body } }
+      // { new: true, runValidators: true }
+    )
+      .then((dbWorkout) => res.json(dbWorkout))
+      .catch((err) => res.status(400).json(err));
+  });
 };
