@@ -1,6 +1,3 @@
-// const Cardio = require("../models/cardioModel.js");
-// const Resistance = require("../models/resistanceModel.js");
-// const router = require("express").Router();
 const db = require("../models");
 
 module.exports = function (app) {
