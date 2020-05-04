@@ -1,11 +1,11 @@
 // const Cardio = require("../models/cardioModel.js");
 // const Resistance = require("../models/resistanceModel.js");
 // const router = require("express").Router();
-const Workout = require("../models/workoutModel.js");
+const db = require("../models");
 
 module.exports = function (app) {
   app.get("/api/workouts", (req, res) => {
-    Workout.find({})
+    db.Workout.find({})
       .limit(7)
       .then((dbWorkout) => {
         res.json(dbWorkout);
@@ -16,7 +16,7 @@ module.exports = function (app) {
   });
 
   app.get("/api/workouts/range", (req, res) => {
-    Workout.find()
+    db.Workout.find()
       .limit(7)
       .then((dbWorkout) => {
         res.json(dbWorkout);
@@ -27,7 +27,7 @@ module.exports = function (app) {
   });
 
   app.post("/api/workouts", ({ body }, res) => {
-    Workout.create(body)
+    db.Workout.create(body)
       .then((dbWorkout) => {
         res.json(dbWorkout);
       })

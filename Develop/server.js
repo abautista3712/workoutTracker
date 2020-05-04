@@ -21,8 +21,8 @@ mongoose
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log(err));
 
-require("./routes/html-routes.js")(app);
-require("./routes/api-routes.js")(app);
+require("./routes/html-routes")(app);
+require("./routes/api-routes")(app);
 
 app.listen(PORT, () => {
   console.log(
