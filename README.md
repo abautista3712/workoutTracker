@@ -53,11 +53,7 @@ None
 
 ## Contributing
 
-External contributions are discouraged.
-
-## Testing
-
-No tests were explicitly developed.
+External contributions are discouraged.  
 
 ## Questions?
 
